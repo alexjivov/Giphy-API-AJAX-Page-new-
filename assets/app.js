@@ -15,9 +15,9 @@ $("button").on("click", function () {
         method: "GET"
     })
         .then(function (response) {
-            //Storing an array of result sin the results variable
+            //Storing an array of results in the results variable
             var topics = response.data;
-            
+
             // Looping over every result item
             for (var i = 0; i < topics.length; i++) {
                 var gifDiv = $("<div class='item'>");
@@ -33,14 +33,12 @@ $("button").on("click", function () {
                 $("#gifShow").prepend(gifDiv);
             }
 
-});
+        });
 
-// dynamically add the buttons for a new show when you enter into the search field
-function addButton() {
+// event listener - dynamically add the buttons for a new show when you enter into the search field
 
     $("#gif-btn").on("click", function (event) {
         event.preventDefault();
-
         var newTopic = $("#giphy-input").val().trim();
         newTopics.push(newTopic);
         console.log("new topic: " + newTopic);
@@ -48,7 +46,18 @@ function addButton() {
         createButtons();
         $("#giphy-input").val("");
     });
-}
 })
-
-function addButton(); 
+// event listener - pausing GIFs
+$("img").on("click", function() {
+    var state = $(this).attr("data-state");
+    // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+    // Then, set the image's data-state to animate
+    // Else set src to the data-still value
+    if (state === "still") {
+      $(this).attr("src", $(this).attr("data-animate"));
+      $(this).attr("data-state", "animate");
+    } else {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");
+    }
+});
