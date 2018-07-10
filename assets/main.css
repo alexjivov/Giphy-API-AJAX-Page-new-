@@ -1,3 +1,26 @@
+body {
+    background-color: aqua; 
+}
+
+h1 {
+    font-family: 'Gaegu', cursive;
+}
+
+form {
+    font-family: 'Gaegu', cursive;
+}
+#gif-btn {
+    color: red; 
+    background-color: #1a3f61;  
+   
+}
+
+button {
+    color: red; 
+    background-color: #1a3f61;  
+    font-family: 'Gaegu', cursive;
+}
+
 #gifShow {
     display: inline-block; 
 }
